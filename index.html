@@ -1,0 +1,638 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Willing With Dream</title>
+<meta name="keywords" content="ホテル,宿泊,高級,スパ,日帰り,ディナー">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="stylesheet/index/responsive.css" rel="stylesheet" type="text/css">
+<link href="stylesheet/index/style.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+<script src="js/jquery-3.4.1.min.js"></script>
+<script>
+$(function() {
+ $(window).scroll(function (){
+	$('.room-border').each(function(){
+		var targetElement = $(this).offset().top;
+		var scroll = $(window).scrollTop();
+		var windowHeight = $(window).height();
+		if (scroll > targetElement - windowHeight + 200){
+			$(this).css('width','43%');
+		}
+	});
+});
+ $(window).scroll(function (){
+	$('.spotLight-border').each(function(){
+		var targetElement = $(this).offset().top;
+		var scroll = $(window).scrollTop();
+		var windowHeight = $(window).height();
+		if (scroll > targetElement - windowHeight + 200){
+			$(this).css('width','57%');
+		}
+	});
+});
+$(window).scroll(function (){
+	$('.city-bd').each(function(){
+		var targetElement = $(this).offset().top;
+		var scroll = $(window).scrollTop();
+		var windowHeight = $(window).height();
+		if (scroll > targetElement - windowHeight + 200){
+			$(this).css('width','10%');
+		}
+	});
+});
+//----------------------------------------------------
+var ttlslideWidth = $('.hotel-ttl-img').outerWidth(); // .slideの幅を取得して代入
+var ttlslideNum = $('.hotel-ttl-img').length ; 
+var ttlslideSetWidth = ttlslideWidth * ttlslideNum; // .slideの幅×数で求めた値を代入
+$('.ttlslideset').css('width', ttlslideSetWidth); // .slideSetのスタイルシートにwidth: slideSetWidthを指定
+var ttlslideCurrent = 0; // 現在地を示す変数
+
+var ttlsliding = function(){
+// slideCurrentが0以下だったら
+	if( ttlslideCurrent < 0 ){
+	ttlslideCurrent = ttlslideNum - 1;
+
+	// slideCurrentがslideNumを超えたら
+	}else if( ttlslideCurrent > ttlslideNum - 1){ // slideCUrrent >= slideNumでも可
+	ttlslideCurrent = 0;
+	}
+	$('.ttlslideset').animate({
+	left: ttlslideCurrent * -ttlslideWidth
+	});
+}
+
+$('.ttlslider-prev').click(function(){
+	ttlslideCurrent--;
+	ttlsliding();
+});
+
+$('.ttlslider-next').click(function(){
+	ttlslideCurrent++;
+	ttlsliding();
+});
+	
+//----------------------------------------------------
+$(window).scroll(function (){
+	$('.hotel-ttl').each(function(){
+		var targetElement = $(this).offset().top;
+		var scroll = $(window).scrollTop();
+		var windowHeight = $(window).height();
+		if (scroll > targetElement - windowHeight + 200){
+			$(this).css('opacity','1');
+			$(this).css('transform','translateY(0)');
+		}
+	});
+});
+//----------------------------------------------------
+$(window).scroll(function (){
+	$('#room-guide-bg').each(function(){
+		var targetElement = $(this).offset().top;
+		var scroll = $(window).scrollTop();
+		var windowHeight = $(window).height();
+		if (scroll > targetElement - windowHeight + 200){
+			$(this).css('opacity','1');
+			$(this).css('transform','translateY(0)');
+		}
+	});
+	$('.section-ttl').each(function(){
+		var targetElement = $(this).offset().top;
+		var scroll = $(window).scrollTop();
+		var windowHeight = $(window).height();
+		if (scroll > targetElement - windowHeight + 200){
+			$(this).css('opacity','1');
+			$(this).css('transform','translateX(0)');
+		}
+	});
+});
+//----------------------------------------------------
+$(window).scroll(function (){
+	$('.text-top').each(function(){
+		var targetElement = $(this).offset().top;
+		var scroll = $(window).scrollTop();
+		var windowHeight = $(window).height();
+		if (scroll > targetElement - windowHeight + 200){
+			$(this).css('opacity','1');
+			$(this).css('transform','translateY(0)');
+		}
+	});
+	$('#spotLight').each(function(){
+		var targetElement = $(this).offset().top;
+		var scroll = $(window).scrollTop();
+		var windowHeight = $(window).height();
+		if (scroll > targetElement - windowHeight + 200){
+			$(this).css('opacity','1');
+			$(this).css('transform','translateY(0)');
+		}
+	});
+});
+//----------------------------------------------------
+$(window).scroll(function (){
+	$('.city-ttl').each(function(){
+		var targetElement = $(this).offset().top;
+		var scroll = $(window).scrollTop();
+		var windowHeight = $(window).height();
+		if (scroll > targetElement - windowHeight + 100){
+			$(this).css('opacity','1');
+			$(this).css('transform','translateY(0)');
+		}
+	});
+	$('.cmt').each(function(){
+		var targetElement = $(this).offset().top;
+		var scroll = $(window).scrollTop();
+		var windowHeight = $(window).height();
+		if (scroll > targetElement - windowHeight + 100){
+			$(this).css('opacity','1');
+			$(this).css('transform','translateX(0)');
+			$('.city-border').css('width','100%');
+			$('.city-border').css('opacity','1');
+		}
+	});
+	$('.city-img').each(function(){
+		var targetElement = $(this).offset().top;
+		var scroll = $(window).scrollTop();
+		var windowHeight = $(window).height();
+		if (scroll > targetElement - windowHeight + 150){
+			$(this).css('opacity','1');
+			$(this).css('transform','translateX(0)');
+		}
+	});
+});
+//----------------------------------------------------
+$(window).scroll(function (){
+	$('.sub2').each(function(){
+		var targetElement = $(this).offset().top;
+		var scroll = $(window).scrollTop();
+		var windowHeight = $(window).height();
+		if (scroll > targetElement - windowHeight + 100){
+			$(this).css('opacity','1');
+			$(this).css('transform','translateX(0)');
+			$('.sub2-city-border').css('width','100%');
+			$('.sub2-city-border').css('transition','all 3s');
+			$('.sub2-city-border').css('opacity','1');
+		}
+	});
+	$('.sub2-img').each(function(){
+		var targetElement = $(this).offset().top;
+		var scroll = $(window).scrollTop();
+		var windowHeight = $(window).height();
+		if (scroll > targetElement - windowHeight + 150){
+			$(this).css('opacity','1');
+			$(this).css('transform','translateX(0)');
+		}
+	});
+});
+//----------------------------------------------------
+	
+$(window).scroll(function(){
+	var pagetop = $('.top-guidance');
+	
+	if($(this).scrollTop()>500){
+		pagetop.fadeIn();
+	}else{
+		pagetop.fadeOut();
+	}
+	
+	pagetop.click(function(){
+	$('body,html').animate({scrollTop:0},600);
+	return false;
+	});
+});
+//----------------------------------------------------
+$(function(){
+	var now =new Date();
+	var m = now.getMonth()+1;
+	var y = now.getFullYear();
+	var i =now.getDate();
+	var w=now.getHours();
+	var n=now.getMinutes();
+	if(m<10){
+		m='0'+m;
+	}
+	if(i<10){
+		i='0'+i;
+	}
+	$('.ttl-time').text(w+' : '+n);
+	$('.input-date').val(y+'-' + m +'-' + i);
+});
+//----------------------------------------------------
+var slideWidth = $('.room-guide').outerWidth(); // .slideの幅を取得して代入
+var slideNum = $('.room-guide').length ; 
+var slideSetWidth = slideWidth * slideNum; // .slideの幅×数で求めた値を代入
+$('.slideset').css('width', slideSetWidth); // .slideSetのスタイルシートにwidth: slideSetWidthを指定
+var slideCurrent = 0; // 現在地を示す変数
+
+var sliding = function(){
+// slideCurrentが0以下だったら
+	if( slideCurrent < 0 ){
+	slideCurrent = slideNum - 1;
+
+	// slideCurrentがslideNumを超えたら
+	}else if( slideCurrent > slideNum - 1){ // slideCUrrent >= slideNumでも可
+	slideCurrent = 0;
+	}
+	$('.slideset').animate({
+	left: slideCurrent * -slideWidth
+	});
+}
+
+$('.slider-prev').click(function(){
+	slideCurrent--;
+	sliding();
+});
+
+$('.slider-next').click(function(){
+	slideCurrent++;
+	sliding();
+});
+//----------------------------------------------------
+	$('.bg-spot1').mouseover(function(){
+		$('.js-1').stop().fadeOut(200);
+		$('.visibility-js1').css('visibility','visible');
+		$('.visibility-js1').css('transform','scale(1.5, 1.5)');
+	}).mouseout(function(){
+		$('.js-1').stop().fadeIn(200);
+		$('.visibility-js1').css('visibility','hidden');
+		$('.visibility-js1').css('transform','scale(0, 0)');
+	});
+	
+	$('.bg-spot2').mouseover(function(){
+		$('.js-2').stop().fadeOut(200);
+		$('.visibility-js2').css('visibility','visible');
+		$('.visibility-js2').css('transform','scale(1.5, 1.5)');
+	}).mouseout(function(){
+		$('.js-2').stop().fadeIn(200);
+		$('.visibility-js2').css('visibility','hidden');
+		$('.visibility-js2').css('transform','scale(0, 0)');
+	});
+	
+	$('.bg-spot3').mouseover(function(){
+		$('.js-3').stop().fadeOut(200);
+		$('.visibility-js3').css('visibility','visible');
+		$('.visibility-js3').css('transform','scale(1.5, 1.5)');
+	}).mouseout(function(){
+		$('.js-3').stop().fadeIn(200);
+		$('.visibility-js3').css('visibility','hidden');
+		$('.visibility-js3').css('transform','scale(0, 0)');
+	});
+//----------------------------------------------------
+	$('.search').each(function(){
+		$(this).click(function(){
+			$(this).toggleClass('.search-button');
+			$('.search-button').css('visibility','visible');
+		});
+	});
+//----------------------------------------------------
+});
+</script>
+</head>
+<body>
+<p class="top-guidance"><!--anchor to header-->
+	<a href="#" id="top">
+	<img src="common/images/top_arrow.png" width="66" height="66" alt="ページtopへ"/></a>
+</p>
+<hr class="room-border">
+<hr class="spotLight-border">
+<hr class="city-bd">
+<!-------------------------------------------------------------------------->
+<header>
+	<div id="headerInner">
+		<div class="logo-bg">
+			<img class="header-logo" src="images/logo_black.png" alt="willingness hotel">
+		</div>
+		<div class="navi-bg-location">
+			<div class="language-menu">
+				<p class="global-cmt">Global</p>
+				<div class="area-content">
+					<p class="search area">
+						<input class="search-button" type="search">
+						<i class="fas fa-search"></i>
+					</p>
+					<p class="language area">
+						<i class="fas fa-globe"></i>
+					</p>
+				</div>
+			</div>
+			<nav>
+				<ul class="navi-ul">
+					<li class="nabi-li"><a href="index.html" class="navi-a">ホテル概要</a></li>
+					<li class="nabi-li"><a href="room/room.html" class="navi-a">お部屋</a></li>
+					<li class="nabi-li"><a href="meal/meal.html" class="navi-a">お食事</a></li>
+					<li class="nabi-li"><a href="spa/spa.html" class="navi-a">リラクゼーション</a></li>
+					<li class="nabi-li"><a href="access/access.html" class="navi-a">アクセス</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</header>
+<!-------------------------------------------------------------------------->
+<main>
+<!-------------------------------------------------------------------------->
+	<div class="main-top-content">
+		<p class="room-ttl">ホテル概要</p>
+		<h1 class="room-h1-ttl">東京</h1>
+		<img class="main-img" src="images/main_img.jpg" alt="ようこそウィリングネスのスパへ">
+		<div id="main-top-inner-location">
+			<div class="inner-border">
+				<img class="logo-main" src="images/logo_new.png" alt="">
+				<div class="register-bg">
+					<div class="content">
+						<p class="txt">ご希望客室</p>
+						<select class="option-area" placeholder="部屋数">
+							<option value="1">1部屋</option>
+							<option value="2">2部屋</option>
+							<option value="3">3部屋</option>
+							<option value="4">4部屋</option>
+						</select>
+					</div>
+					<div class="content">
+						<p class="txt">ご到着日</p>
+						<form class="form-area" action="#">
+							<i class="far fa-calendar-alt"></i>
+							<input type="date" class="input-date" value="yyyy-mm-dd">
+						</form>
+					</div>
+					<div class="content">
+						<p class="txt">ご出発日</p>
+						<form class="form-area" action="#">
+							<i class="far fa-calendar-alt"></i>
+							<input type="date" class="input-date" value="yyyy-mm-dd">
+						</form>
+					</div>
+					<div class="content">
+						<p class="txt">宿泊人数</p>
+						<select class="option-area" placeholder="人数">
+							<option value="1">1名</option>
+							<option value="2">2名</option>
+							<option value="3">3名</option>
+							<option value="4">4名</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<a class="price-button">料金を確認する</a>
+		</div>
+	</div>
+<!-------------------------------------------------------------------------->
+	<div class="hotel-ttl">
+		<div class="ttlslider">
+			<div class="ttlslideset">
+				<img class="hotel-ttl-img" src="images/hotel_ttl_img.jpg" width="1280" height="1365" alt=""/>
+				<img class="hotel-ttl-img" src="images/hotel_ttl_img2.jpg" alt="">
+				<img class="hotel-ttl-img" src="images/hotel_ttl_img3.jpg" alt="">
+			</div>
+		</div>
+		<div class="bt">
+			<img src="common/images/left_arrow.png" alt="" class="ttlslider-prev">
+			<img src="common/images/right_arrow.png" alt="" class="ttlslider-next">
+		</div>
+		<section>
+			<h2>古都の魅力を堪能</h2>
+			<h1>東京</h1>
+			<table>
+				<tr>
+					<th>
+						<div><i class="fas fa-map-marked-alt"></i><span>地図</span><a class="access-guide" href="access/access.html">東京都東京区東京清水1998-4-7</a></div>
+					</th>
+					<td>
+						<div><i class="fas fa-mobile-alt"></i><span>電話番号</span><span class="span">000-000-000</span></div>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<div><i class="fas fa-history"></i><span>現地時間</span><span class="ttl-time span"></span></div>
+					</th>
+					<td>
+						<div><i class="fas fa-cloud-sun"></i><span>天気</span><span class="weather span">4/8 °C </span></div>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<div><i class="fab fa-telegram-plane"></i><span>Eメール</span><span class="span">sample@gmail</span></div>
+					</th>
+					<td>
+						<div><i class="fas fa-hotel"></i><span>08008000800</span></div>
+					</td>
+				</tr>
+			</table>
+			<p>
+				東京の上空に浮かぶウィリングネス 東京は、眼下にすばらしい風景が広がるラグジュアリーな5つ星ホテルです。凜とした風格ある佇まいと和モダンのスタイルに、最新鋭のテクノロジー、定評あるスパ、驚きと感動に満ちた食体験、卓越したサービスを融合させ、真心を込めてお客さまをおもてなしいたします。
+			</p>
+		</section>
+	</div>
+<!-------------------------------------------------------------------------->
+	<section id="section-room-guide">
+		<hgroup class="section-ttl">
+			<h2>最高の空間をあなたに</h2>
+			<h1>各部屋&スイート</h1>
+		</hgroup>
+		<div id="room-guide-bg">
+			<img  class="slider-prev" src="common/images/left_arrow.png" width="100" height="100" alt=""/>
+			<img class="slider-next" src="common/images/right_arrow.png" width="100" height="100" alt=""/>
+			<div class="slider">
+				<div class="slideset">
+					<!-------1部屋目-------->
+					<div class="room-guide">
+						<img class="room-guide-photo" src="room/image/room_img.jpg" width="803" height="560" alt=""/>
+						<div class="guide-price">
+							<p class="price-top">最低料金：</p>
+							<p class="price">58000から</p>
+							<p class="price-limit">/1泊 JPY</p>
+						</div>
+						<div class="room-guide-topics">
+							<h2>デラックス ルーム</h2>
+							<h3>壁一面に広がる大きな窓越しに大都会のパノラミックな眺望をお楽しみいただける、高層階のお部屋。</h3>
+							<h4>シティビューまたは東京スカイツリービュー / <br>バスタブとウォークイン / シャワー / ソファとテーブル / 4K HDR TV（55インチ、IPTV) / Bluetoothスピーカー</h4>
+							<a href="room/room.html">詳細はこちら</a>
+						</div>
+					</div>
+					<!-------2部屋目-------->
+					<div class="room-guide">
+						<img class="room-guide-photo" src="room/image/room_img_2.jpg" width="803" height="560" alt=""/>
+						<div class="guide-price">
+							<p class="price-top">最低料金：</p>
+							<p class="price">75000から</p>
+							<p class="price-limit">/1泊 JPY</p>
+						</div>
+						<div class="room-guide-topics">
+							<h2>デラックス プレミアルーム</h2>
+							<h3>東京スカイツリーの眺望と広々としたリビングエリアを備えた客室。</h3>
+							<h4>東京スカイツリービューバスタブとウォークイン / <br>シャワー / ソファとテーブル / 4K HDR TV（55インチ、IPTV) / Bluetoothスピーカー</h4>
+							<a href="room/room.html">詳細はこちら</a>
+						</div>
+					</div>
+					<!-------3部屋目-------->
+					<div class="room-guide">
+						<img class="room-guide-photo" src="room/image/room_img_3.jpg" width="803" height="560" alt=""/>
+						<div class="guide-price">
+							<p class="price-top">最低料金：</p>
+							<p class="price">58000から</p>
+							<p class="price-limit">/1泊 JPY</p>
+						</div>
+						<div class="room-guide-topics">
+							<h2>デラックス コーナー ルーム</h2>
+							<h3>2面に取られたガラス壁越しに湾岸周辺の風景をお楽しみいただける客室。</h3>
+							<h4>東京湾またはシティビュー深めのバスタブとシャワー /<br> ソファ / 4K HDR TV（55インチ、IPTV) / Bluetoothスピーカー</h4>
+							<a href="room/room.html">詳細はこちら</a>
+						</div>
+					</div>
+					<!-------4部屋目-------->
+					<div class="room-guide">
+						<img class="room-guide-photo" src="room/image/room_img_4.jpg" width="803" height="560" alt=""/>
+						<div class="guide-price">
+							<p class="price-top">最低料金：</p>
+							<p class="price">90000から</p>
+							<p class="price-limit">/1泊 JPY</p>
+						</div>
+						<div class="room-guide-topics">
+							<h2>ウィリングネス グランドルーム</h2>
+							<h3>富士山の眺望とスパのようなバスルームを備えた60㎡の客室。</h3>
+							<h4>シティビューバスタブとウォークイン / シャワー / <br>ソファとテーブルウォークイン / クローゼット / 4K HDR TV（55インチ、IPTV) / Bluetoothスピーカー</h4>
+							<a href="room/room.html">詳細はこちら</a>
+						</div>
+					</div>
+					<!-------5部屋目-------->
+					<div class="room-guide">
+						<img class="room-guide-photo" src="room/image/room_img_9.jpg" width="803" height="560" alt=""/>
+						<div class="guide-price">
+							<p class="price-top">最低料金：</p>
+							<p class="price">99000から</p>
+							<p class="price-limit">/1泊 JPY</p>
+						</div>
+						<div class="room-guide-topics">
+							<h2>プレデンシャル スイート</h2>
+							<h3>ダイニングルーム、リビングルーム、スパ仕様のバスルームを備えた1ベッドルームのプレジデンシャル スイート</h3>
+							<h4>富士山と東京湾を望む眺望 / 東京湾と富士山を望む広々としたバスルームウォークイン /<br>クローゼットパントリー / 4K HDR TV（77/65/49 インチ、IPTV)サウンドシステム： / ドルビーアトモス サウンドバー</h4>
+							<a href="room/room.html">詳細はこちら</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+<!-------------------------------------------------------------------------->
+	<section id="section-spotLight">
+		<div class="text-top">
+			<p>魅力あふれる</p>
+			<h1>誘惑</h1>
+		</div>
+		<div id="spotLight">
+			<!--1個目-->
+			<div class="spot-js1">
+				<div class="bg-spot1">
+					<img class="spot-img" src="room/image/room_img_3.jpg" width="1366" height="768" alt=""/>
+					<a href="room/room.html" class="visibility-js1">
+						<div class="visibility-border">
+							<p class="menu-hide">ベッド＆ブレックファスト</p>
+							<p class="price-hide">最低料金： 64000 JPY</p>
+						</div>
+					</a>
+				</div>
+				<div class="js-1">
+					<p class="menu">ベッド＆ブレックファスト</p>
+					<p class="price">最低料金： 64000 JPY</p>
+				</div>
+			</div>
+			<!--2個目-->
+			<div class="spot-js2">
+				<div class="bg-spot2">
+					<img class="spot-img" src="meal/image/fl_img_3.jpg" width="978" height="682" alt=""/>
+					<a href="meal/meal.html" class="visibility-js2">
+						<div class="visibility-border">
+							<p class="menu-hide">ラグジュアリー ブレイク</p>
+							<p class="price-hide">最低料金： 48000 JPY</p>
+						</div>
+					</a>
+				</div>
+				<div class="js-2">
+					<p class="menu">ラグジュアリー ブレイク</p>
+					<p class="price">最低料金： 48000 JPY</p>
+				</div>
+			</div>
+			<!--3個目-->
+			<div class="spot-js3">
+				<div class="bg-spot3">
+					<img class="spot-img" src="spa/images/spa_main_bg.jpg" width="848" height="591" alt=""/>
+					<a href="spa/spa.html" class="visibility-js3">
+						<div class="visibility-border">
+							<p class="menu-hide">スパ体験プラン</p>
+							<p class="price-hide">最低料金： 15000 JPY</p>
+						</div>
+					</a>
+				</div>
+				<div class="js-3">
+					<p class="menu">スパ体験プラン</p>
+					<p class="price">最低料金： 15000 JPY</p>
+				</div>
+			</div>
+		</div>
+	</section>
+<!-------------------------------------------------------------------------->
+	<section class="city-guide">
+		<div class="city-ttl">
+			<p class="top-ttl">つなげる、つながる</p>
+			<p class="sub-ttl">シティガイド</p>
+		</div>
+		<div class="city-cmt">
+			<section class="cmt">
+				<img class="city-cmt-img" src="common/images/logo-right.png" alt="ウィリングネス東京">
+				<div class="city-acsesary">
+					<hr class="city-border">
+					<p class="number">01</p>
+				</div>
+				<p class="cmt-ttl">東京の基本ガイド</p>
+				<p class="cmt-sub-ttl">おしゃれで粋な日本橋にあるウィリングネス 東京。<br>ご滞在中に訪れたい東京のレストランやショップ<br>など見どころがたくさんございます。</p>
+			</section>
+			<img class="city-img" src="images/spot-img.jpg" alt="シティーガイド">
+		</div>
+		
+	</section>
+	<section class="city-guide">
+		<div class="city-cmt sub2-cmt">
+			<section class="cmt sub2">
+				<img class="city-cmt-img sub2-cmt-img" src="common/images/logo-right.png" alt="ウィリングネス東京">
+				<div class="city-acsesary sub2-acsesary">
+					<hr class="city-border sub2-city-border">
+					<p class="number sub2-number">02</p>
+				</div>
+				<p class="cmt-ttl sub2-cmt-ttl">日本橋ならではの体験</p>
+				<p class="cmt-sub-ttl sub2-sub-ttl">魅力ある老舗名店、伝統工芸店がある日本橋界隈は、歴史情緒豊かな街並みと近代的な高級ショッピングエリア、ダイニングスポットやスパが交差し、新旧の魅力が混在する街です。</p>
+			</section>
+			<img class="city-img sub2-img" src="images/spot-img-2.jpg" alt="シティーガイド">
+		</div>
+	</section>
+</main>
+<!-------------------------------------------------------------------------->
+<footer>
+	<div class="flex-contents">
+		<div class="img-bg">
+			<img src="images/logo_new.png" alt="footer-logo" class="footer-logo">
+		</div>
+		<div class="media-logo">
+			<p class="ft-ttl">ソーシャルメディア</p>
+			<div class="ttl-flex">
+				<p class="twiter"><i class="fab fa-twitter"></i></p>
+				<p class="facebook"><i class="fab fa-facebook"></i></p>
+				<p class="line"><i class="fab fa-line"></i></p>
+				<p class="instagram"><i class="fab fa-instagram"></i></p>
+			</div>
+		</div>
+		<table>
+			<tr>
+				<td class="left-news">お問い合わせ</td>
+				<td class="right-news">会社情報</td>
+			</tr>
+			<tr>
+				<td class="left-news">ギフトカード</td>
+				<td class="right-news">メディアセンター</td>
+			</tr>
+			<tr>
+				<td class="left-news">採用情報</td>
+				<td class="right-news">株主・投資家の皆さまへ</td>
+			</tr>
+		</table>
+	</div>
+	<p class="footer-cmt">2020 © Willingness TOKYO HOTEL</p>
+</footer>
+</body>
+</html>
